@@ -14,9 +14,7 @@ const HeaderCartButton = (props) => {
     return curNumber + item.amount;
   }, 0);
 
-  const btnClasses = `${classes.button} ${
-    btnIsHighlighted ? classes.bump : ''
-  }`;
+  const btnClasses = `${classes.button} ${btnIsHighlighted ? classes.bump : ''}`;
 
   useEffect(() => {
     if (items.length === 0) {
@@ -25,16 +23,16 @@ const HeaderCartButton = (props) => {
     setBtnIsHighlighted(true);
 
     const timer = setTimeout(() => {
-        setBtnIsHighlighted(false);
+      setBtnIsHighlighted(false);
     }, 300);
 
     return () => {
-        clearTimeout(timer);
-    }
+      clearTimeout(timer);
+    };
   }, [items]);
 
   return (
-    <button className={btnClasses} onClick={props.onButtonClick}>
+    <button className={btnClasses} onClick={props.onClick}>
       <span className={classes.icon}>
         <CartIcon />
       </span>
